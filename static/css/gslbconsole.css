@@ -1,0 +1,12 @@
+body {
+  	padding-top: 110px;
+  	padding-bottom: 40px;
+}
+.page-header {
+	padding-bottom: 5px;
+ 	margin: 15px 2px 0px;
+ 	border-bottom: 1px solid #eee;
+}
+.navbar {
+  	margin-bottom: 0px;
+}

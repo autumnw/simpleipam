@@ -1,0 +1,35 @@
+{% extends "simpleipam/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+	<div class="row">
+		<div class="container-fluid">
+			<div class="col-xs-12">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Subnet</th>
+							<th>IP ranges</th>
+							<th>VLAN</th>
+							<th>Active</th>
+							<th>Comments</th>
+						</tr>
+					</thead>
+					{% if pools %}
+					{% for pool in pools %}
+					<tr>
+						<td><a href="/pool/{{pool.name}}" target="ip_addresses">{{pool.name}}</a></td>
+						<td>{{pool.subnet}}/{{pool.maskbit}}</td>
+						<td>{{pool.ip_ranges}}</td>
+						<td>{{pool.vlan}}</td>
+						<td>{{pool.is_active}}</td>
+						<td>{{pool.comments}}</td>
+					</tr>
+					{% endfor %}
+					{% endif %}
+				</table>
+			</div>
+		</div> <!-- Container -->
+	</div>
+{% endblock %}
