@@ -12,6 +12,9 @@
 	</title>
 	<link href="{% static 'bootstrap3/css/bootstrap.css' %}" rel="stylesheet">
 	<link rel="stylesheet" href="{% static 'css/gslbconsole.css' %}" type="text/css" media="screen" />
+	
+	<link rel="stylesheet" href="{{ STATIC_URL }}django_tables2/themes/paleblue/css/screen.css" />
+	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<script src="{% static 'bootstrap3/js/bootstrap.js' %}"></script>
 </head>
@@ -24,7 +27,7 @@
 				<!--<div class="container-fuild">-->
 				<div class="row">
 					<div class="col-xs-2"> 
-						<img src="{% static 'simpleipam/images/logo.png' %}" class="img-rounded">
+						<img src="{% static '/static/images/logo.jpeg' %}" class="img-rounded" height="20" width="40">
 					</div>
 					<div class="col-xs-4 col-xs-offset-2"> 
 						<H4>Simple IPAM</H4>
@@ -44,24 +47,13 @@
 						</button>
 					</div>
 				</div>
-				<div class="collapse navbar-collapse" id="my-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="/pools">Pools</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/logout">logout</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-nav-right">
-						{% block org_dropdown %} {% endblock %}
-						<li><a href="/admin" target="_blank">Admin</a></li>
-					</ul>
-				</div>
+				{% block menu %} {% endblock %}
 			</nav> <!-- navigation -->
 		</div> <!-- Container -->
 	</nav> <!-- navbar-fixed-top -->
 	
 	{% block content %}{% endblock %}
-	
+	<!--
 	<div class="row">
 		<div class="container-fluid">
 		    <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -71,6 +63,7 @@
 		    </nav>
 		</div>
 	</div>
+	-->
 </div>
 </body>
 </html>

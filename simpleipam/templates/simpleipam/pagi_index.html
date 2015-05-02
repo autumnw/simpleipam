@@ -1,0 +1,31 @@
+{% extends "simpleipam/base.html" %}
+{% load render_table from django_tables2 %}
+{% load staticfiles %}
+
+{% block menu %}
+<div class="collapse navbar-collapse" id="my-collapse-1">
+	<ul class="nav navbar-nav">
+		<li class="active"><a href="/pools">Pools</a></li>
+	</ul>
+	<ul class="nav navbar-nav">
+		<li><a href="/pool/create">Create Pool</a></li>
+	</ul>
+	<ul class="nav navbar-nav navbar-right">
+		<li><a href="/logout?next=/">logout</a></li>
+	</ul>
+	<ul class="nav navbar-nav navbar-nav-right">
+		{% block org_dropdown %} {% endblock %}
+		<li><a href="/admin" target="_blank">Admin</a></li>
+	</ul>
+</div>
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="container-fluid">
+			<div class="col-xs-12">				
+				{% render_table table %}
+			</div>
+		</div> <!-- Container -->
+	</div>
+{% endblock %}

@@ -1,19 +1,18 @@
 {% extends "simpleipam/base.html" %}
-{% load render_table from django_tables2 %}
 {% load staticfiles %}
 
 {% block content %}
 	<div class="row">
 		<div class="container-fluid">
 			<div class="col-xs-12">
-				{% render_table addresses %}
-				<!--
+				{# render_table addresses #}
+				
 				<table class="table table-hover">
 					<thead>
 						<tr>
 							<th>Address</th>
 							<th>Used</th>
-							<th>status</th>
+							<th>state</th>
 							<th>Comments</th>
 						</tr>
 					</thead>
@@ -22,7 +21,7 @@
 					<tr>
 						<td>{{addr.ip_address}}</td>
 						<td>{{addr.used}}</td>
-						<td>{{addr.status}}</td>
+						<td>{{addr.state}}</td>
 						<td>{{addr.comments}}</td>
 					</tr>
 					{% endfor %}
@@ -33,7 +32,7 @@
 				    <li><a href="#">{{page}}</a></li>
 				    {% endfor %}
 				</ul>
-				-->
+				
 			</div>
 		</div> <!-- Container -->
 	</div>

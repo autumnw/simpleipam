@@ -17,10 +17,10 @@ class IpPoolSerializer(serializers.ModelSerializer):
 
 class IpAddressSerializer(serializers.ModelSerializer):
     
-    pool = IpPoolSerializer(source="pool")
+    #pool = IpPoolSerializer()
     class Meta:
         model = IpAddress
-        fields = ('ip_address', 'used', 'pool')
+        fields = ('ip_address', 'used', 'comments', 'state')
     
 '''    
 class IpAddressExtrInfoSerializer(serializers.ModelSerializer):

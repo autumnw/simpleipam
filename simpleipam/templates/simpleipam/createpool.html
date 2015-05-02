@@ -1,0 +1,17 @@
+{% load staticfiles %}
+
+{% block content %}
+	<div class="row">&nbsp;</div>
+	<div class="row">&nbsp;</div>
+	<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="container-fluid">
+			<div class="col-xs-12 centered">				
+				<form action='{{form.path}}' method='post'>{% csrf_token %}
+				{{ form.as_p }}
+				<input type='submit' value='Save' />
+				</form>
+			</div>
+		</div> <!-- Container -->
+	</div>
+{% endblock %}

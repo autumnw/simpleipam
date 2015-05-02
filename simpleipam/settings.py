@@ -23,7 +23,7 @@ SECRET_KEY = 'chqv0=k$kl^r)=iazd$s49v#^s)@y$o)p3330zopw2(w34af+!'
 #DEBUG = True
 DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',
     'bootstrap3',
-    #'django_tables2',
+    'django_tables2',
     #'south',
     'simpleipam',
 )
@@ -67,6 +67,28 @@ ROOT_URLCONF = 'simpleipam.urls'
 
 WSGI_APPLICATION = 'simpleipam.wsgi.application'
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.eggs.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.contrib.messages.context_processors.messages",
+    "django.core.context_processors.request",
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
