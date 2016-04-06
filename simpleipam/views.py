@@ -18,6 +18,7 @@ from django.contrib.auth.decorators import permission_required
 from django_tables2 import SingleTableView
 from simpleipam import models
 from simpleipam.filters import AddressFilter
+from simpleipam.utils import sort_ips
 
 logger = logging.getLogger('simpleipam.file')
 
@@ -263,12 +264,13 @@ class IpAllocateView(APIView):
 			return Response(data="The pool %s does not exist!" % pool, status=400)
 		if unused_ips.count() < number_of_ips:
 			return Response(data="No enough ips in this pool.", status=400)
+		unused_ips = sort_ips(unused_ips)
 		ip_list = []
-		for ip in unused_ips[:number_of_ips]:
-			ip_list.append(ip.ip_address)
-			ip.used = True
-			ip.comments = comments
-			ip.save()
+		for the_ip in unused_ips[:number_of_ips]:
+			ip_list.append(the_ip.ip_address)
+			the_ip.used = True
+			the_ip.comments = comments
+			the_ip.save()
 		return Response(ip_list)
 	
 	
